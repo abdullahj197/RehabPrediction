@@ -1,0 +1,187 @@
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">R</div>
+      <div>
+        <h2>RehabAI</h2>
+        <span>Movement Intelligence</span>
+      </div>
+    </div>
+
+    <div class="nav-label">WORKSPACE</div>
+
+    <button
+      *ngFor="let item of menuItems"
+      class="nav-item"
+      [class.active]="selectedPage === item"
+      (click)="selectPage(item)">
+      <span class="nav-dot"></span>
+      {{ item }}
+    </button>
+
+    <div class="sidebar-bottom">
+      <div class="status-dot"></div>
+      <div>
+        <strong>System status</strong>
+        <span>Frontend prototype</span>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">REHABILITATION ANALYTICS</div>
+        <h1>{{ selectedPage }}</h1>
+        <p>Predictive Rehabilitation Movement Classification</p>
+      </div>
+      <div class="profile">
+        <div class="avatar">RA</div>
+        <div>
+          <strong>Research Workspace</strong>
+          <span>Academic prototype</span>
+        </div>
+      </div>
+    </header>
+
+    <section *ngIf="selectedPage === 'Dashboard'">
+      <div class="welcome-card">
+        <div class="welcome-text">
+          <span class="pill"><span class="status-dot"></span> PROJECT OVERVIEW</span>
+          <h2>Movement intelligence,<br>made easier to understand.</h2>
+          <p>
+            Explore rehabilitation movement classification, model performance,
+            and dataset insights in one workspace.
+          </p>
+          <button class="primary-button" (click)="selectPage('Movement Analysis')">
+            Explore movement analysis <span>→</span>
+          </button>
+        </div>
+
+        <div class="figure-area">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <svg viewBox="0 0 240 280" class="human-figure" aria-label="Movement skeleton illustration">
+            <g stroke="#66e0ce" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none">
+              <circle cx="120" cy="35" r="16" fill="#173b4b" stroke="#8cf2df"/>
+              <path d="M120 52 L120 112 L120 155"/>
+              <path d="M120 69 L81 91 L58 132"/>
+              <path d="M120 69 L158 89 L184 122"/>
+              <path d="M120 155 L91 205 L77 250"/>
+              <path d="M120 155 L151 203 L169 248"/>
+              <path d="M103 78 L137 78"/>
+              <path d="M105 112 L135 112"/>
+              <path d="M105 155 L135 155"/>
+            </g>
+            <g fill="#e2fff8" stroke="#66e0ce" stroke-width="2">
+              <circle cx="120" cy="69" r="6"/>
+              <circle cx="81" cy="91" r="6"/>
+              <circle cx="58" cy="132" r="6"/>
+              <circle cx="158" cy="89" r="6"/>
+              <circle cx="184" cy="122" r="6"/>
+              <circle cx="120" cy="112" r="6"/>
+              <circle cx="120" cy="155" r="6"/>
+              <circle cx="91" cy="205" r="6"/>
+              <circle cx="77" cy="250" r="6"/>
+              <circle cx="151" cy="203" r="6"/>
+              <circle cx="169" cy="248" r="6"/>
+            </g>
+          </svg>
+          <div class="figure-tag">MOVEMENT TRACKING <span>●</span></div>
+        </div>
+      </div>
+
+      <div class="section-heading">
+        <div>
+          <h2>Model performance</h2>
+          <p>Previously evaluated model metrics</p>
+        </div>
+        <span class="subtle-label">TEST RESULTS</span>
+      </div>
+
+      <div class="metrics-grid">
+        <article class="metric-card">
+          <div class="metric-top"><span>Test accuracy</span><span class="metric-icon">◎</span></div>
+          <h3>99.82<small>%</small></h3>
+          <div class="metric-track"><span style="width:99.82%"></span></div>
+          <p>Correct classifications</p>
+        </article>
+        <article class="metric-card">
+          <div class="metric-top"><span>Precision</span><span class="metric-icon">⌁</span></div>
+          <h3>99.82<small>%</small></h3>
+          <div class="metric-track"><span style="width:99.82%"></span></div>
+          <p>Positive prediction quality</p>
+        </article>
+        <article class="metric-card">
+          <div class="metric-top"><span>Recall</span><span class="metric-icon">↗</span></div>
+          <h3>99.82<small>%</small></h3>
+          <div class="metric-track"><span style="width:99.82%"></span></div>
+          <p>Relevant cases identified</p>
+        </article>
+        <article class="metric-card">
+          <div class="metric-top"><span>F1 score</span><span class="metric-icon">✳</span></div>
+          <h3>99.82<small>%</small></h3>
+          <div class="metric-track"><span style="width:99.82%"></span></div>
+          <p>Precision and recall balance</p>
+        </article>
+      </div>
+
+      <div class="lower-grid">
+        <article class="panel dataset-panel">
+          <div class="panel-heading">
+            <div><h2>Dataset overview</h2><p>Data used for model development</p></div>
+            <span class="panel-icon">▤</span>
+          </div>
+          <div class="dataset-stats">
+            <div><span>Records</span><strong>104,435</strong></div>
+            <div><span>Features / columns</span><strong>84</strong></div>
+          </div>
+          <div class="dataset-bar"><span></span></div>
+          <div class="dataset-foot"><span>Rehabilitation dataset</span><span>Dataset summary</span></div>
+        </article>
+
+        <article class="panel workflow-panel">
+          <div class="panel-heading">
+            <div><h2>Project workflow</h2><p>From movement data to prediction</p></div>
+            <span class="panel-icon">⌘</span>
+          </div>
+          <div class="workflow-step">
+            <span class="step-number">01</span>
+            <div><strong>Input data</strong><p>Prepare movement features</p></div>
+            <span class="step-status">READY</span>
+          </div>
+          <div class="workflow-step">
+            <span class="step-number">02</span>
+            <div><strong>Classification model</strong><p>Process features with the trained model</p></div>
+            <span class="step-status planned">INTEGRATION</span>
+          </div>
+          <div class="workflow-step">
+            <span class="step-number">03</span>
+            <div><strong>Prediction results</strong><p>Present classification output</p></div>
+            <span class="step-status planned">PLANNED</span>
+          </div>
+        </article>
+      </div>
+
+      <p class="disclaimer">
+        Research prototype only. Displayed metrics are existing evaluation results,
+        not live predictions or clinical advice.
+      </p>
+    </section>
+
+    <section class="placeholder-page" *ngIf="selectedPage !== 'Dashboard'">
+      <div class="placeholder-icon">✦</div>
+      <h2>{{ selectedPage }}</h2>
+      <p>
+        This section is part of the RehabAI interface. Backend and live prediction
+        integration will be connected in a later step.
+      </p>
+      <button class="primary-button" (click)="selectPage('Dashboard')">
+        ← Back to dashboard
+      </button>
+    </section>
+
+    <footer>RehabAI <span>•</span> Predictive Rehabilitation Movement Classification</footer>
+  </main>
+</div>
